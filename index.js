@@ -26,7 +26,7 @@
     options = options || {}
 
     var leading = options.leading == null ? false : options.leading;
-    var Promise = options.Promise || Promise;
+    var _Promise = options.Promise || Promise;
     var queued = false;
     var args = null;
     var promise = null;
@@ -47,7 +47,7 @@
       }
 
       queued = true;
-      promise = Promise.resolve()
+      promise = _Promise.resolve()
         .then(function() {
           return fn.apply(context, args);
         })
