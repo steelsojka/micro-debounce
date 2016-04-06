@@ -1,0 +1,14 @@
+{
+  "name": "micro-debounce",
+  "version": "1.0.0",
+  "description": "Debounce functions using micro tasks",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "debounce"
+  ],
+  "author": "Steven Sojka",
+  "license": "MIT"
+}
