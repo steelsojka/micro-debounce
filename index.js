@@ -20,12 +20,13 @@
    * @param {Object} [options] - Options object.
    * @param {boolean} [options.leading=false] - Whether the first calls arguments are passed
    *   to the function of the last calls arguments.
+   * @param {Object} [options.Promise=Promise] - The promise implementation to use. Defaults to the global implementation.
    */
   return function microDebounce(fn, options) {
     options = options || {}
 
-    options.leading = options.leading == null ? false : options.leading;
-
+    var leading = options.leading == null ? false : options.leading;
+    var Promise = options.Promise || Promise;
     var queued = false;
     var args = null;
     var promise = null;
@@ -37,7 +38,7 @@
     return function microDebounced() {
       var context = this;
 
-      if (!args || !options.leading) {
+      if (!args || !leading) {
         args = Array.prototype.slice.call(arguments);
       }
 
